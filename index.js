@@ -33,6 +33,6 @@ app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
-app.listen(8800, () => {
-  console.log("backend server is running on port 8800");
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`backend server is running ON PORT ${PORT}`);
 });
