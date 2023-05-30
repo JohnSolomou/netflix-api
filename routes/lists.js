@@ -4,7 +4,7 @@ const verify = require("../verifyToken");
 
 //create
 router.post("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     const newList = new List(req.body);
     try {
       const savedList = await newList.save();
@@ -19,7 +19,7 @@ router.post("/", verify, async (req, res) => {
 
 //delete
 router.delete("/:id", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     try {
       await List.findByIdAndDelete(req.params.id);
       res.status(201).json("this list has been deleted");

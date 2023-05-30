@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
 });
 
 //Login
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     !user && res.status(401).json("Wrong password or username!");
@@ -35,8 +35,8 @@ router.post("/login", async (req, res) => {
 
     const accessToken = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
-      process.env.SECRET_KEY,
-      { expiresIn: "5d" }
+      process.env.SECRET_KEY
+      // { expiresIn: "60d" }
     );
 
     const { password, ...info } = user._doc;

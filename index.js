@@ -9,13 +9,13 @@ const listRoute = require("./routes/lists");
 const cors = require("cors");
 app.use(
   cors({
-    //   allowedHeaders: ["sessionId", "Content-Type"],
-    //   exposedHeaders: ["sessionId"],
+    // allowedHeaders: ["sessionId", "Content-Type"],
+    // exposedHeaders: ["sessionId"],
     "Access-Control-Allow-Origin": "*",
-    //   contentType: "application/json",
-    //   accept: "application/json",
-    //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    //   preflightContinue: false,
+    contentType: "application/json",
+    accept: "application/json",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // preflightContinue: false,
   })
 );
 dotenv.config();

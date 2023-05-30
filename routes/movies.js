@@ -4,7 +4,7 @@ const verify = require("../verifyToken");
 
 //create
 router.post("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     const newMovie = new Movie(req.body);
     try {
       const savedMovie = await newMovie.save();
@@ -18,7 +18,7 @@ router.post("/", verify, async (req, res) => {
 });
 //update
 router.put("/:id", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     try {
       const updateMovie = await Movie.findByIdAndUpdate(
         req.body.id,
@@ -38,7 +38,7 @@ router.put("/:id", verify, async (req, res) => {
 
 //delete
 router.delete("/:id", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     try {
       await Movie.findByIdAndDelete(req.body.id);
       res.status(200).json("the movie has been deleted");
@@ -85,7 +85,7 @@ router.get("/random", verify, async (req, res) => {
 
 //get all
 router.get("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
+  if (req.user?.isAdmin) {
     try {
       const movies = await Movie.find();
       res.status(200).json(movies.reverse());
