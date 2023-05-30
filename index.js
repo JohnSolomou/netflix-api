@@ -33,6 +33,6 @@ app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`backend server is running ON PORT ${PORT}`);
 });
