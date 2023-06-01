@@ -15,8 +15,8 @@ app.use(
     "Access-Control-Allow-Origin": "*",
     contentType: "application/json",
     accept: "application/json",
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    // preflightContinue: false,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
   })
 );
 dotenv.config();
